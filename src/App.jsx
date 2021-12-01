@@ -1,16 +1,24 @@
 import React from 'react'
 import './App.css';
+import Select from 'react-select';
 
 class App extends React.Component{
     constructor(props) {
         super(props)
         this.state = {
-            langs: ["python", "javascript", "java", "kotlin"],
+            langs: ["all"],
             stmts: [],
             data: {},
             lang: "all",
             stmt: "",
+            options: []
         }
+
+    }
+
+    componentDidMount() {
+        this.loadLangs('http://133.242.158.143:8000/api/langs')
+        this.loadOptions('http://133.242.158.143:8000/api/stmts')
     }
 
     async loadData(url){
@@ -20,9 +28,33 @@ class App extends React.Component{
             .then((res) => this.setState({data: res}))
     }
 
-    handleInputChange(e) {
-        const val = e.target.value
-        this.setState({stmt: val})
+    async loadLangs(url) {
+        console.log(url)
+        return fetch(url)
+            .then((res) => res.json())
+            .then((res) => this.setState({langs: this.state.langs.concat(res)}))
+    }
+
+    async loadOptions(url) {
+        console.log(url)
+        return fetch(url)
+            .then((res) => res.json())
+            .then((res) => {
+                var options = []
+                res.forEach(i => {
+                    console.log(i)
+                    options.push({value: i, label: i})
+                })
+                this.setState({options: options})
+            })
+    }
+
+    handleSelectInputChange(e) {
+        if (e.length() === 0) {}
+        else {
+            const val = e[0]["value"]
+            this.setState({stmt: val})
+        }
     }
 
     handleSelectChange(e) {
@@ -42,12 +74,18 @@ class App extends React.Component{
                     </select>
                 </div>
                 <div>
-                    <input type="text" value={this.state.stmt} onChange={this.handleInputChange.bind(this)}/>
+                    <Select
+                        id={"select"}
+                        defaultValue={null}
+                        isMulti
+                        name="colors"
+                        options={this.state.options}
+                        onChange={this.handleSelectInputChange.bind(this)}
+                        className="basic-multi-select"
+                        classNamePrefix="select"
+                    />
                     <button onClick={this.handleSerchClick.bind(this)}>
                         serch
-                    </button>
-                    <button onClick={() => {console.log(this.state.data)}}>
-                        check
                     </button>
                 </div>
                 <div>
@@ -57,6 +95,9 @@ class App extends React.Component{
                     code:<pre> {this.state.data.code}</pre>
                     result:<pre> {this.state.data.result}</pre>
                     sample:<pre> {this.state.data.sample}</pre>
+                </div>
+                <div>
+
                 </div>
             </div>
         )
