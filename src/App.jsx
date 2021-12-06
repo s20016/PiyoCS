@@ -50,11 +50,8 @@ class App extends React.Component{
     }
 
     handleSelectInputChange(e) {
-        if (e.length() === 0) {}
-        else {
             const val = e[0]["value"]
             this.setState({stmt: val})
-        }
     }
 
     handleSelectChange(e) {
