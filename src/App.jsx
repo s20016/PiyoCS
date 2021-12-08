@@ -1,111 +1,119 @@
 import React from 'react'
-import './App.css';
-import Select from 'react-select';
+import './App.css'
+import Select from 'react-select'
 
-class App extends React.Component{
-    constructor(props) {
-        super(props)
-        this.state = {
-            langs: ["all"],
-            stmts: [],
-            data: {},
-            lang: "all",
-            stmt: "",
-            options: []
-        }
+import DisplayContent from './DisplayContent'
+import Footer from './Footer'
 
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      allData: {},
+      langs: ['all'],
+      stmts: [],
+      data: {},
+      lang: 'all',
+      stmt: '',
+      options: []
     }
+  }
 
-    componentDidMount() {
-        this.loadLangs('http://133.242.158.143:8000/api/langs')
-        this.loadOptions('http://133.242.158.143:8000/api/stmts')
+  componentDidMount () {
+    this.loadData('https://raw.githubusercontent.com/s20016/PiyoCS/dev/public/data.json')
+  }
+
+  async loadData (url) {
+    console.log(url)
+    return window.fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        const langs = Object.keys(res)
+        const options = []
+        Object.keys(res.python.statement).forEach(i => {
+          options.push({ value: i, label: i })
+        })
+        this.setState({
+          langs: this.state.langs.concat(langs),
+          options: options,
+          allData: res
+        })
+      })
+  }
+
+  handleSelectInputChange (e) {
+    if (e.length === 0) {
+      this.setState({ stmt: '' })
+      return
     }
+    const val = e[0].value
+    this.setState({ stmt: val })
+  }
 
-    async loadData(url){
-        console.log(url)
-        return fetch(url)
-            .then((res) => res.json())
-            .then((res) => this.setState({data: res}))
+  handleSelectChange (e) {
+    const value = e.target.value
+    if (value === 'all') {
+      return
     }
+    const options = []
+    Object.keys(this.state.allData[value].statement).forEach(i => {
+      options.push({ value: i, label: i })
+    })
+    this.setState({
+      lang: e.target.value,
+      options: options
+    })
+  }
 
-    async loadLangs(url) {
-        console.log(url)
-        return fetch(url)
-            .then((res) => res.json())
-            .then((res) => this.setState({langs: this.state.langs.concat(res)}))
-    }
+  handleSearchClick () {
+    this.setState({ data: this.state.allData[this.state.lang].statement[this.state.stmt] })
+  }
 
-    async loadOptions(url) {
-        console.log(url)
-        return fetch(url)
-            .then((res) => res.json())
-            .then((res) => {
-                var options = []
-                res.forEach(i => {
-                    console.log(i)
-                    options.push({value: i, label: i})
-                })
-                this.setState({options: options})
-            })
-    }
-
-    handleSelectInputChange(e) {
-            const val = e[0]["value"]
-            this.setState({stmt: val})
-    }
-
-    handleSelectChange(e) {
-        this.setState({lang: e.target.value})
-    }
-
-    handleSerchClick() {
-        this.loadData(`http://133.242.158.143:8000/api?lang=${this.state.lang}&stmt=${this.state.stmt}`)
-    }
-
-    render(){
-        return(
-            <div>
-                <div>
-                    <select onChange={this.handleSelectChange.bind(this)}>
-                        <ViewOption langs={this.state.langs}/>
-                    </select>
-                </div>
-                <div>
-                    <Select
-                        id={"select"}
-                        defaultValue={null}
-                        isMulti
-                        name="colors"
-                        options={this.state.options}
-                        onChange={this.handleSelectInputChange.bind(this)}
-                        className="basic-multi-select"
-                        classNamePrefix="select"
-                    />
-                    <button onClick={this.handleSerchClick.bind(this)}>
-                        serch
-                    </button>
-                </div>
-                <div>
-                    {`http://133.242.158.143:8000/api?lang=${this.state.lang}&stmt=${this.state.stmt}`}
-                </div>
-                <div>
-                    code:<pre> {this.state.data.code}</pre>
-                    result:<pre> {this.state.data.result}</pre>
-                    sample:<pre> {this.state.data.sample}</pre>
-                </div>
-                <div>
-
-                </div>
-            </div>
-        )
-    }
+  render () {
+    // console.log(this.state.lang)
+    console.log('TEST')
+    console.log(this.state.data)
+    return (
+      <div>
+        <div>
+          <select onChange={this.handleSelectChange.bind(this)}>
+            <ViewOption langs={this.state.langs} />
+          </select>
+        </div>
+        <div>
+          <Select
+            id='select'
+            defaultValue={null}
+            isMulti
+            name='colors'
+            options={this.state.options}
+            onChange={this.handleSelectInputChange.bind(this)}
+            className='basic-multi-select'
+            classNamePrefix='select'
+          />
+          <button onClick={this.handleSearchClick.bind(this)}>
+            search
+          </button>
+        </div>
+        <div>
+          <DisplayContent
+            lang={this.state.lang}
+            stmt={this.state.stmt}
+            code={this.state.data.code}
+            result={this.state.data.result}
+            sample={this.state.data.sample}
+          />
+        </div>
+        <Footer />
+      </div>
+    )
+  }
 }
 
 const ViewOption = (props) => {
-    return props.langs.map(data => {
-        return <option value={data} >{data}</option>
-    })
+  return props.langs.map(data => {
+    return <option key={data} value={data}>{data}</option>
+  })
 }
 
-
-export default App;
+export default App

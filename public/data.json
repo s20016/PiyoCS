@@ -48,7 +48,7 @@
 		"join":{
 			"code":"'間に挿入する文字列'.join([連結したい文字列のリスト])",
 			"sample":"l = ['aaa', 'bbb', 'ccc']\n s = '-'.join(l)\nprint(s)",
-			"rasult":"aaa-bbb-ccc",
+			"result":"aaa-bbb-ccc",
 			"tag":[
 				"join"
 			]
@@ -107,11 +107,19 @@
 		"join":{
 			"code":"String sj = String.join(\"区切りに使いたい文字\", \"文字列1\",\"文字列2\",\"文字列3\");",
 			"sample":"String str = String.join(\",\", \"apple\", \"orange\", \"melon\");\nSystem.out.println(str);",
-			"rasult":"apple,orange,melon",
+			"result":"apple,orange,melon",
 			"tag":[
 				"join"
 			]
-		}
+		},
+    "cast":{
+      "code":"(type)var \n type:データ型 \n var:変数名",
+      "sample":"long l = 50;\n int i = (int)l; \n System.out.println(1+i);",
+      "result":"51",
+      "tag":[
+        "cast"
+      ]
+    }
 		
 	},
 	"update": ""
@@ -163,10 +171,12 @@
 			]
 		},
 		"join":{
-			"code":"",
-			"sample":"",
-			"rasult":"",
-			"tag":""
+			"code":"join(\"区切りに使用したい文字\")",
+			"semple":"var array = [\"Hello\",\"World\"];\nvar result = array.join(\":\");\nconsole.log(result);",
+			"rasult":"Hello:World",
+      "tag":[
+        "join"
+      ]
 
 		}
 	},
