@@ -1,6 +1,6 @@
 import React from 'react'
 
-const DisplayContent = (props) => {
+const Content = (props) => {
   return (
     <div>
       <div>
@@ -15,4 +15,4 @@ const DisplayContent = (props) => {
   )
 }
 
-export default DisplayContent
+export default Content

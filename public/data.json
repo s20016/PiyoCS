@@ -1,233 +1,286 @@
 {
-	"python": {
-    "id": 0,
-	"statement": {
-		"if": {
-			"code": "if 条件式A:\n 条件式Aが真（true）の場合に実行する処理\n elif 条件式B:\n条件式Aが偽（false）で条件式Bが真（true）の場合に実行する処理\nelse:\nすべての条件式が偽（false）の場合に実行する処理",
-			"sample": "a = 1 \n if a == 1: \n  print('1です') \n elif a == 2: print('2です') \n else: \n print('3です')",
-			"result": "1です",
-			"tag": [
-				"if"
-			]
-		},
-		"for": {
-			"code":"for 変数 in オブジェクト:\n 実行する処理",
-			"sample":"words = ['Japanese', 'English', 'French']\n for w in words:\n  print (w)",
-			"result":"Japanese\n English\n French",
-			"tag": [
-				"for",
-				"loop"
-			]
-		},
-		"while": {
-			"code":"while 条件式:\n 条件式が真の時に実行する文",
-			"sample":"num = 0\n while num < 2:\n print(\"num = \" + str(num))\n num += 1\n print(\"End\")",
-			"result":"0\n 1\n End",
-			"tag": [
-				"whiile",
-				"loop"
-			]
-		},
-		"print":{
-			"code":"print('出力したい文字')",
-			"sample":"print('Hello')",
-			"result":"Hello",
-			"tag": [
-				"print"
-			]
-		},
-		"replace":{
-			"code":"\"文字または変数\".replace(\"変換したい文字\", \"変換後の文字\")",
-			"sample":"a = \"i like apple\"\n print(a.replace(\"apple\", \"Banana\"))",
-			"result":"i like Banana",
-			"tag": [
-				"replace"
-
-			]
-		},
-		"join":{
-			"code":"'間に挿入する文字列'.join([連結したい文字列のリスト])",
-			"sample":"l = ['aaa', 'bbb', 'ccc']\n s = '-'.join(l)\nprint(s)",
-			"result":"aaa-bbb-ccc",
-			"tag":[
-				"join"
-			]
-
-		}
-	},
-	"update": ""
-	},
 	"java": {
-	"id": 1,
-	"statement": {
-		"if": {
-			"code": "if(条件式) {\n 処理内容 \n}",
-			"sample":"int a = 1\n if(a > 0) {\n System.out.println(\"a の値は正です\");\n}\n else if (a == 0) {\n System.out.println(\"a の値は0です\")",
-			"result": "a の値は正です",
-			"tag": [
-				"if"
-			]
+		"id": 1,
+		"statement": {
+			"cast": {
+				"code": "(type)var \n type:データ型 \n var:変数名",
+				"result": "51",
+				"sample": "long l = 50;\n int i = (int)l; \n System.out.println(1 i);",
+				"tag": [
+					"cast"
+				]
+			},
+			"for": {
+				"code": "for(初期化式;条件式;変化式){\n 繰り返しの中で実行される処理\n}",
+				"result": "i=0 \n i=1",
+				"sample": "for (int i = 0; i < 2; i  ){\n System.out.println(\"i=\"   i)",
+				"tag": [
+					"for",
+					"loop"
+				]
+			},
+			"if": {
+				"code": "if(条件式) {\n 処理内容 \n}",
+				"result": "a の値は正です",
+				"sample": "int a = 1\n if(a > 0) {\n System.out.println(\"a の値は正です\");\n}\n else if (a == 0) {\n System.out.println(\"a の値は0です\")",
+				"tag": [
+					"if"
+				]
+			},
+			"join": {
+				"code": "String sj = String.join(\"区切りに使いたい文字\", \"文字列1\",\"文字列2\",\"文字列3\");",
+				"result": "apple,orange,melon",
+				"sample": "String str = String.join(\",\", \"apple\", \"orange\", \"melon\");\nSystem.out.println(str);",
+				"tag": [
+					"join"
+				]
+			},
+			"print": {
+				"code": "(改行なしで出力したい場合)->System.out.print(表示する内容); /n (改行ありで出力したい場合) -> System.out.println(表示する内容)",
+				"result": "Hello World!!\nHello",
+				"sample": "System.out.print(\"Hello\");\nSystem.out.println(\"World!!\");\n System.out.print(\"Hello\")",
+				"tag": [
+					"print"
+				]
+			},
+			"replace": {
+				"code": "対象の文字列.replace(置換される文字列, 置換する文字列)",
+				"result": "01230123",
+				"sample": "String str1 = \"abc123abc123\";\n String str2 = str1.replace(\"abc\", \"0\");\n System.out.println(str2); ",
+				"tag": [
+					"replace"
+				]
+			},
+			"while": {
+				"code": "whlie(条件式){\n 繰り返しの中で実行される処理\n}",
+				"result": "num = 1\n num = 2\n num = 4",
+				"sample": "int num = 1;\n while(num <5){\n System.out.println(\"num=\" num)\n num *= 2;\n}",
+				"tag": [
+					"while",
+					"loop"
+				]
+			},
+			"comment": {
+				"code": "(1行のみコメントしたい場合)// ここにコメントを入力\n(複数行コメントしたい場合)/* ここにコメントを入力 */",
+				"sample": "// コレは1行のコメントです\n/* コレは\n複数行の\nコメントです\n*/",
+				"result": "なし",
+				"tag": [
+					"java",
+					"comment"
+				]
+			},
+			"continue": {
+				"code": "for (int i = 0; i = 繰り返したい回数; i  )\n  if (条件式)\n  {\n    continue\n  }\nsystem.out.println(i)\n}",
+				"sample": "for (int i = 0; i = 10; i  )\n  if (i == 5)\n  {\n    continue;\n  }\nsystem.out.println(i)\n}",
+				"result": "0\n1\n2\n3\n4\n6\n7\n8\n9",
+				"tag": [
+					"java",
+					"continue"
+				]
+			}
 		},
-		"for":{
-			"code":"for(初期化式;条件式;変化式){\n 繰り返しの中で実行される処理\n}",
-			"sample":"for (int i = 0; i < 2; i++){\n System.out.println(\"i=\" + i)",
-			"result":"i=0 \n i=1",
-			"tag": [
-				"for",
-				"loop"
-			]
-		},
-		"while": {
-			"code":"whlie(条件式){\n 繰り返しの中で実行される処理\n}",
-			"sample":"int num = 1;\n while(num <5){\n System.out.println(\"num=\"+num)\n num *= 2;\n}",
-			"result":"num = 1\n num = 2\n num = 4",
-			"tag": [
-				"while",
-				"loop"
-			]
-		},
-		"print":{
-			"code":"(改行なしで出力したい場合)->System.out.print(表示する内容); /n (改行ありで出力したい場合) -> System.out.println(表示する内容)",
-			"sample":"System.out.print(\"Hello\");\nSystem.out.println(\"World!!\");\n System.out.print(\"Hello\")",
-			"result":"Hello World!!\nHello",
-			"tag": [
-				"print"
-			]
-			
-		},
-		"replace":{
-			"code":"対象の文字列.replace(置換される文字列, 置換する文字列)",
-			"sample":"String str1 = \"abc123abc123\";\n String str2 = str1.replace(\"abc\", \"0\");\n System.out.println(str2); ",
-			"result":"01230123",
-			"tag": [
-				"replace"
-			]
-
-		},
-		"join":{
-			"code":"String sj = String.join(\"区切りに使いたい文字\", \"文字列1\",\"文字列2\",\"文字列3\");",
-			"sample":"String str = String.join(\",\", \"apple\", \"orange\", \"melon\");\nSystem.out.println(str);",
-			"result":"apple,orange,melon",
-			"tag":[
-				"join"
-			]
-		},
-    "cast":{
-      "code":"(type)var \n type:データ型 \n var:変数名",
-      "sample":"long l = 50;\n int i = (int)l; \n System.out.println(1+i);",
-      "result":"51",
-      "tag":[
-        "cast"
-      ]
-    }
-		
+		"update": ""
 	},
-	"update": ""
-},
 	"javascript": {
-	"id": 2,
-	"statement": {
-		"if": {
-			"code": "if (条件式) {\n 条件が成り立った場合処理を実行\n )",
-			"sample":"var num = 90;\n if(num > 80) {\n console.log(\"numは80より大きいです。\");\n}",
-			"result": "numは80より大きいです",
-			"tag": [
-				"if"
-			]
+		"id": 2,
+		"statement": {
+			"console.log": {
+				"code": "console.log(出力したい内容);",
+				"result": "Hello",
+				"sample": "console.log('Hello')",
+				"tag": [
+					"print"
+				]
+			},
+			"for": {
+				"code": "for ([初期化式]; [条件式]; [加算式]) {\n  // 実際に実行する処理\n}",
+				"result": "現在1回目の処理です。\n現在2回目の処理です。\n現在3回目の処理です。",
+				"sample": "for (let i = 0; i < 3; i  ) {\n  console.log(\"現在\"   (i 1)   \"回目の処理です。\")\n}",
+				"tag": [
+					"for",
+					"loop"
+				]
+			},
+			"if": {
+				"code": "if (条件式) {\n 条件が成り立った場合処理を実行\n )",
+				"result": "numは80より大きいです",
+				"sample": "var num = 90;\n if(num > 80) {\n console.log(\"numは80より大きいです。\");\n}",
+				"tag": [
+					"if"
+				]
+			},
+			"join": {
+				"code": "join(\"区切りに使用したい文字\")",
+				"rasult": "Hello:World",
+				"semple": "var array = [\"Hello\",\"World\"];\nvar result = array.join(\":\");\nconsole.log(result);",
+				"tag": [
+					"join"
+				]
+			},
+			"replace": {
+				"code": "var str = 文字列 \n str.replace(対象の文字, 置換する文字);",
+				"result": "user-123",
+				"sample": "var str = 'user_123';\nvar result = str.replace( '_', '-' );\nconsole.log( result );",
+				"tag": [
+					"replace"
+				]
+			},
+			"while": {
+				"code": "while (条件式) {\n  // 実際に実行する処理\n}",
+				"result": "0\n 1\n 2\nend",
+				"sample": "let i = 0\n\nwhile(i < 3)\n console.log(i);\n i = i   1;\n} console.log('end')",
+				"tag": [
+					"while",
+					"loop"
+				]
+			}
 		},
-		"for":{
-			"code": "for ([初期化式]; [条件式]; [加算式]) {\n  // 実際に実行する処理\n}",
-			"sample": "for (let i = 0; i < 3; i++) {\n  console.log(\"現在\" + (i+1) + \"回目の処理です。\")\n}",
-			"result": "現在1回目の処理です。\n現在2回目の処理です。\n現在3回目の処理です。",
-			"tag": [
-				"for",
-				"loop"
-			]
-		},
-		"while": {
-			"code": "while (条件式) {\n  // 実際に実行する処理\n}",
-			"sample": "let i = 0\n\nwhile(i < 3)\n console.log(i);\n i = i + 1;\n} console.log('end')",
-			"result": "0\n 1\n 2\nend",
-			"tag": [
-				"while",
-				"loop"
-			]
-			
-		},
-		"console.log":{
-			"code": "console.log(出力したい内容);",
-			"sample": "console.log('Hello')",
-			"result": "Hello",
-			"tag": [
-				"print"
-			]
-		},
-		"replace":{
-			"code": "var str = 文字列 \n str.replace(対象の文字, 置換する文字);",
-			"sample": "var str = 'user_123';\nvar result = str.replace( '_', '-' );\nconsole.log( result );",
-			"result":"user-123",
-			"tag":[
-				"replace"
-			]
-		},
-		"join":{
-			"code":"join(\"区切りに使用したい文字\")",
-			"semple":"var array = [\"Hello\",\"World\"];\nvar result = array.join(\":\");\nconsole.log(result);",
-			"rasult":"Hello:World",
-      "tag":[
-        "join"
-      ]
-
-		}
+		"update": ""
 	},
-	"update": ""
-},
 	"kotlin": {
-	"id": 3,
-	"statement": {
-		"if": {
-			"code": "if(結果がtrue/falseになる式){\n 式がtrueのときの処理\n}else if(ifがtrueではない別の条件){\n else if で行いたい処理\n}else{\n elseで行いたい処理 \n}",
-			"sample":"val num = 1 \n if(num == 0){\n println(\"numは0\")\n}else if(num == 1){\nprintln(\"numは1\")\n}else{\nprintln(\"numはそれ以外\")\n}",
-			"result": "numは1",
-			"tag": [
-				"if"
-			]
+		"id": 3,
+		"statement": {
+			"for": {
+				"code": "for(変数 in 条件){\nループしたい処理\n}",
+				"result": "0,1,2,3,4,5",
+				"sample": "for(i in 0..5) {\n println(i)\n}",
+				"tag": [
+					"for",
+					"loop"
+				]
+			},
+			"if": {
+				"code": "if(結果がtrue/falseになる式){\n 式がtrueのときの処理\n}else if(ifがtrueではない別の条件){\n else if で行いたい処理\n}else{\n elseで行いたい処理 \n}",
+				"result": "numは1",
+				"sample": "val num = 1 \n if(num == 0){\n println(\"numは0\")\n}else if(num == 1){\nprintln(\"numは1\")\n}else{\nprintln(\"numはそれ以外\")\n}",
+				"tag": [
+					"if"
+				]
+			},
+			"print": {
+				"code": "print(\"出力したい文字\")",
+				"result": "Hello World",
+				"sample": "print(\"Hello World\")",
+				"tag": [
+					"print"
+				]
+			},
+			"replace": {
+				"code": "変数.replace(\"置換前の文字\",\"置換後の文字\")",
+				"result": "aBc",
+				"sample": "val str = \"abc\"\nval str1 = str.replace(\"b\",\"B\")\nprintln(str1);",
+				"tag": [
+					"replace"
+				]
+			},
+			"while": {
+				"code": "while (条件式) {\n ループしたい処理\n}",
+				"result": "0,1,2,3,4,5,6,7,8,9",
+				"sample": "var i = 0\n while(i < 10) {\n println(i)\n   i\n}",
+				"tag": [
+					"while",
+					"loop"
+				]
+			},
+			"comment": {
+				"code": "(1行のみコメントしたい場合)// ここにコメントを入力\n(複数行コメントしたい場合)/* ここにコメントを入力 */",
+				"sample": "// コレは1行のコメントです\n/* コレは\n複数行の\nコメントです\n*/",
+				"result": "なし",
+				"tag": [
+					"kotlin",
+					"comment"
+				]
+			},
+			"continue": {
+				"code": "for (処理) {\n  if( 条件式) {\n    continue\n  }\nprintln( 出力したい文字等)\n}",
+				"sample": "for (i in 0..2) {\n  if(i==1) {\n    continue\n   }\n  println(i)\n }\n",
+				"result": "0\n2",
+				"tag": [
+					"kotlin",
+					"continue"
+				]
+			},
+			"join": {
+				"code": "val 変数名1: Array<型> = arrayOf(配列の内容)\nval 変数名2 = 変数名1.joinToString()\nprintln(変数名2)\n",
+				"sample": "val langlist: Array<String> = arrayOf(\"java\",\"javascript\",\"kotlin\",\"python\")\nval contains = programs.joinToString()\nprintln(contains)",
+				"result": "java,javascript,kotlin,python",
+				"tag": [
+					"kotlin",
+					"join"
+				]
+			},
+			"when": {
+				"code": "val 変数名1 = 1\n\nwhen (変数名1) {\n     0 -> {\n        println(\"0\")\n      }\n      1,2 -> {\n         println(\"1,2\")\n       }\n       else -> {\n          println(\"else\")\n       }\n}",
+				"sample": "val wprac = 1\n\nwhen (wprac) {\n     0 -> {\n        println(\"0\")\n      }\n      1,2 -> {\n         println(\"1,2\")\n       }\n       else -> {\n          println(\"else\")\n       }\n}",
+				"result": "1,2",
+				"tag": [
+					"kotlin",
+					"when"
+				]
+			}
 		},
-		"for":{
-			"code": "for(変数 in 条件){\nループしたい処理\n}",
-			"sample": "for(i in 0..5) {\n println(i)\n}",
-			"result": "0,1,2,3,4,5",
-			"tag": [
-				"for",
-				"loop"
-			]
-		},
-		"while": {
-			"code":"while (条件式) {\n ループしたい処理\n}",
-			"sample":"var i = 0\n while(i < 10) {\n println(i)\n ++i\n}",
-			"result":"0,1,2,3,4,5,6,7,8,9",
-			"tag": [
-				"while",
-				"loop"
-			]
-		},
-		"print":{
-			"code":"print(\"出力したい文字\")",
-			"sample":"print(\"Hello World\")",
-			"result":"Hello World",
-			"tag":[
-				"print"
-			]
-		},
-		"replace":{
-			"code":"変数.replace(\"置換前の文字\",\"置換後の文字\")",
-			"sample":"val str = \"abc\"\nval str1 = str.replace(\"b\",\"B\")\nprintln(str1);",
-			"result":"aBc",
-			"tag":[
-				"replace"
-			]
-		}
+		"update": ""
 	},
-	"update": ""
-}
+	"python": {
+		"id": 0,
+		"statement": {
+			"for": {
+				"code": "for 変数 in オブジェクト:\n  実行する処理",
+				"result": "Japanese\nEnglish\nFrench",
+				"sample": "words = ['Japanese', 'English', 'French']\n\nfor w in words:\n  print(w)",
+				"tag": [
+					"for",
+					"loop"
+				]
+			},
+			"if": {
+				"code": "if 条件式A:\n  条件式Aが真（true）の場合に実行する処理\nelif 条件式B:\n  条件式Aが偽（false）で条件式Bが真（true）の場合に実行する処理\nelse:\n  すべての条件式が偽（false）の場合に実行する処理\n\n# pythonではswitch文やwhen式が無いため\n# if elif elseを使って表現しないといけない。",
+				"result": "大人",
+				"sample": "a = 20\n\nif a < 20:\n  print('子供')\nelif a < 60:\n  print('大人')\nelse:\n  print('老人')",
+				"tag": [
+					"if",
+					"switch",
+					"when",
+					"case"
+				]
+			},
+			"join": {
+				"code": "'間に挿入する文字列'.join([連結したい文字列のリスト])",
+				"result": "aaa-bbb-ccc",
+				"sample": "l = ['aaa', 'bbb', 'ccc']\ns = '-'.join(l)\nprint(s)",
+				"tag": [
+					"join",
+					"cat"
+				]
+			},
+			"print": {
+				"code": "print('出力したい文字', end=\"最後の文字\", sep=\"間に入れたい文字\")\n# endを指定しない場合は改行がデフォルトで入る\n# sepを指定しない場合は空白がデフォルトで入る",
+				"result": "Hello\nHello@Python@Print\nHellopiyopiyo",
+				"sample": "print('Hello')\nprint(\"Hello\", \"Python\", \"Print\", sep=\"@\")\nprint(\"Hello\", end=\"piyopiyo\")",
+				"tag": [
+					"print",
+					"println",
+					"printf"
+				]
+			},
+			"replace": {
+				"code": "\"文字または変数\".replace(\"変換したい文字\", \"変換後の文字\")",
+				"result": "i like Banana",
+				"sample": "a = \"i like apple\"\n print(a.replace(\"apple\", \"Banana\"))",
+				"tag": [
+					"replace"
+				]
+			},
+			"while": {
+				"code": "while 条件式:\n  条件式が真の時に実行する文\n\n# 下の書き方でも良い\n# while True:\n#   if 条件式;\n#     break\n",
+				"result": "num = 0\nnum = 1\nEnd",
+				"sample": "num = 0\nwhile num < 2:\n  print(\"num =\", str(num))\n  num  = num   1\nprint(\"End\")",
+				"tag": [
+					"whiile",
+					"loop"
+				]
+			}
+		},
+		"update": ""
+	}
 }

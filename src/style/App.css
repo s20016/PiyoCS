@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto 15px;
+}
+.wrapper .searchBar {
+  height: 89px;
+  width: 1132px;
+  background-color: #615C5C;
+}
