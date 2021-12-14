@@ -1,11 +1,119 @@
-.wrapper {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: auto 15px;
+body {
+  background-color: #e4e4e4;
+  height: 100vh;
+  width: 100%;
 }
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .wrapper .searchBar {
   height: 89px;
-  width: 1132px;
-  background-color: #615C5C;
+  width: 1000px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  margin: 50px auto;
+  opacity: 0.8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 10px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 33px;
 }
+
+.wrapper .searchBar .divider {
+  height: 50px;
+  width: 4px;
+  background-color: #dad9d9;
+  margin: auto 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper .searchBar .lang {
+  height: 80px;
+  width: 50%;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper .searchBar .lang .dropdown {
+  width: 100%;
+  color: #444444;
+  outline: none;
+}
+
+.wrapper .searchBar .stmt {
+  height: 80px;
+  width: 100%;
+  margin: auto 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #444444;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper .searchBar .stmt .dd-search {
+  width: 100%;
+}
+
+.wrapper .searchBar .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 20%;
+}
+
+.wrapper .searchBar .btn .sbtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 58px;
+  font-size: 45px;
+  border: none;
+  color: #535050;
+  border-radius: 3px;
+}
+/*# sourceMappingURL=App.css.map */
