@@ -1,11 +1,10 @@
 import React from 'react'
 import Select from 'react-select'
 import getdata from '../data/data.json'
-// import Button from 'react-bootstrap/Button'
 import { IoSearch } from 'react-icons/io5'
 
 import Content from './Content'
-// import Footer from './Footer'
+import InitialContent from './InitialContent'
 
 class Search extends React.Component {
   constructor (props) {
@@ -17,9 +16,12 @@ class Search extends React.Component {
       data: {},
       lang: 'all',
       stmt: '',
+      selectLang: 'all',
+      selectStmt: '',
       langOptions: [],
       stmtOptions: [],
-      selectStmtOption: null
+      selectStmtOption: null,
+      isInitial: true
     }
   }
 
@@ -71,7 +73,7 @@ class Search extends React.Component {
     // }
 
     const value = e.value
-    this.setState({ stmt: value, selectStmtOption: { value: value, label: value } })
+    this.setState({ selectStmt: value, selectStmtOption: { value: value, label: value } })
   }
 
   handleSelectChange (e) {
@@ -85,62 +87,73 @@ class Search extends React.Component {
       options.push({ value: i, label: i })
     })
     this.setState({
-      lang: e.value,
-      stmt: '',
+      selectLang: e.value,
+      selectStmt: '',
       selectStmtOption: null,
       options: options
     })
   }
 
   handleSearchClick () {
-    this.setState({ data: this.state.allData[this.state.lang].statement[this.state.stmt] })
+    this.setState({
+      data: this.state.allData[this.state.selectLang].statement[this.state.selectStmt],
+      stmt: this.state.selectStmt,
+      lang: this.state.selectLang,
+      isInitial: false
+    })
     console.log(this.state.data)
   }
 
   render () {
     return (
       <>
-        <div className='wrapper'>
-          <div className='searchBar'>
-            <div className='lang'>
+        <div className='search-wrapper'>
+          <div className='search-bar'>
+            <div className='language-box'>
               <Select
-                className='dropdown'
+                className='language-select'
                 options={this.state.langOptions}
                 onChange={this.handleSelectChange.bind(this)}
               />
             </div>
             <div className='divider'>
             </div>
-            <div className='stmt'>
+            <div className='statement-box'>
               <Select
               // id='select'
               // defaultValue={null}
               // isMulti
               // name='colors'
-              className='dd-search'
+              className='statement-select'
               value={this.state.selectStmtOption}
               options={this.state.options}
               onChange={this.handleSelectInputChange.bind(this)}
               // classNamePrefix='select'
               />
             </div>
-            <div className='btn'>
+            <div className='button-box'>
               <button
-                className='sbtn'
-                onClick={this.handleSearchClick.bind(this)}
+                className='button'
+                onClick={
+                  this.handleSearchClick.bind(this)
+                }
               >
                 <IoSearch />
               </button>
             </div>
           </div>
         </div>
-        <Content
-          lang={this.state.lang}
-          stmt={this.state.stmt}
-          // code={this.state.data.code}
-          result={this.state.data.result}
-          sample={this.state.data.sample}
-        />
+        {
+          (this.state.isInitial)
+            ? <InitialContent/>
+            : <Content
+                lang={this.state.lang}
+                stmt={this.state.stmt}
+                code={this.state.data.code}
+                result={this.state.data.result}
+                sample={this.state.data.sample}
+              />
+        }
       </>
     )
   }
