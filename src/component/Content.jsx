@@ -21,17 +21,20 @@ const Content = (props) => {
           <div className='header-stmt'>{props.stmt}</div>
           <hr className='divider'/>
         </div>
-        <div className='Code'>
+        <div className='code'>
+          <p className='title'>sample</p>
           <pre>
             <code className={`language-${props.lang}`}>
               {props.code}
             </code>
           </pre>
+          <p className='title'>code</p>
           <pre>
             <code className={`language-${props.lang}`}>
               {props.sample}
             </code>
           </pre>
+          <p className='title'>result</p>
           <pre>
             <code className={`language-${props.lang}`}>
               {props.result}

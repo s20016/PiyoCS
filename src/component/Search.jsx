@@ -105,12 +105,21 @@ class Search extends React.Component {
   }
 
   render () {
+    const customStyles = {
+      option: (provided) => ({
+        ...provided
+        // backgroundColor: '#f3f3f3'
+      })
+    }
+
     return (
       <>
         <div className='search-wrapper'>
+          {/* <h1>ピヨピヨ チートシート</h1> */}
           <div className='search-bar'>
             <div className='language-box'>
               <Select
+                styles={customStyles}
                 className='language-select'
                 options={this.state.langOptions}
                 onChange={this.handleSelectChange.bind(this)}

@@ -6,8 +6,8 @@ const InitialContent = (props) => {
       <div className='initcont-wrapper'>
         <div className='initcont-box'>
           <div className='header-lang'>
-            <h1>Welcome to PiyoCS</h1>
-            <h4>ピヨピヨチートシートへようこそ</h4>
+            <h2>Welcome to PiyoCS</h2>
+            <h5>ピヨピヨチートシートへようこそ</h5>
           </div>
           <hr className='divider'/>
           <div className="content">
