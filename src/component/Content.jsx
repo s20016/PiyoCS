@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-// import Highlight, { defaultProps } from 'prism-react-renderer'
-// import React from 'react'
 import Prism from 'prismjs'
 import 'prismjs/components/prism-java'
 import 'prismjs/components/prism-swift'

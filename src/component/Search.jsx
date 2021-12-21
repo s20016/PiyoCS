@@ -46,32 +46,8 @@ class Search extends React.Component {
     })
   }
 
-  // async loadData (url) {
-  //   console.log(url)
-  //   return window.fetch(url)
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       const langs = Object.keys(res)
-  //       const options = []
-  //       Object.keys(res.python.statement).forEach(i => {
-  //         options.push({ value: i, label: i })
-  //       })
-  //       this.setState({
-  //         langs: this.state.langs.concat(langs),
-  //         options: options,
-  //         allData: res
-  //       })
-  //     })
-  // }
-
   handleSelectInputChange (e) {
     console.log(e)
-
-    // if (e.length === 0) {
-    //   this.setState({ stmt: '' })
-    //   return
-    // }
-
     const value = e.value
     this.setState({ selectStmt: value, selectStmtOption: { value: value, label: value } })
   }
@@ -108,14 +84,12 @@ class Search extends React.Component {
     const customStyles = {
       option: (provided) => ({
         ...provided
-        // backgroundColor: '#f3f3f3'
       })
     }
 
     return (
       <>
         <div className='search-wrapper'>
-          {/* <h1>ピヨピヨ チートシート</h1> */}
           <div className='search-bar'>
             <div className='language-box'>
               <Select
@@ -129,15 +103,10 @@ class Search extends React.Component {
             </div>
             <div className='statement-box'>
               <Select
-              // id='select'
-              // defaultValue={null}
-              // isMulti
-              // name='colors'
               className='statement-select'
               value={this.state.selectStmtOption}
               options={this.state.options}
               onChange={this.handleSelectInputChange.bind(this)}
-              // classNamePrefix='select'
               />
             </div>
             <div className='button-box'>
@@ -167,11 +136,5 @@ class Search extends React.Component {
     )
   }
 }
-
-// const ViewOption = (props) => {
-//   return props.langs.map(data => {
-//     return <option key={data} value={data}>{data}</option>
-//   })
-// }
 
 export default Search

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InitialContent = (props) => {
+const InitialContent = () => {
   return (
     <>
       <div className='initcont-wrapper'>

@@ -1,25 +1,71 @@
-$dark-bg: #575656ce;
+// Google Roboto Font
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+// Variables
+$background-color: #575656ce;
 $text-color: #f3f3f3;
-$divider: #a19f9f;
+$text-color2: #444444;
+$divider-color: #a19f9f;
+$box-width: 800px;
+$button-bg: #918c8c;
+$button-hover-bg: #383837d7;
+
+// Functions
+@mixin wrapper-property {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+}
+
+@mixin box-property {
+  display: flex; 
+  padding: 0 10px;
+  width: $box-width;
+  border-radius: 6px;
+  background-color: $background-color;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: $text-color;
+}
+
+@mixin select-props {
+  width: 100%;
+  z-index: 100;
+}
+
+@mixin sub-box-props {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  margin: auto 5px;
+}
+
+@mixin footer-property {
+  @include wrapper-property();
+  flex-direction: column;
+}
+
+@mixin divider-property {
+  width: 100%;
+  border: 1px solid $divider-color;
+}
+
 
 body {
-  // background-color: #08081F;
   background-image: url('../img/bg.jpg');
   background-size: cover;
   background-attachment: fixed;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   font-family: 'Roboto', sans-serif;
 }
 
 .app-wrapper {
+  @include wrapper-property();
   min-height: 100vh;
-  width: 100%;
-  display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: flex-start;
   row-gap: 40px;
 
@@ -29,66 +75,41 @@ body {
 }
 
 .search-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
+  @include wrapper-property();
   margin: 50px 0 0 0;
-  
-  // h1 {
-  //   color: $dark-bg;
-  //   margin: 2px;
-  //   letter-spacing: 2px;
-  // }
 
   .search-bar {
+    @include box-property();
     height: 89px;
-    width: 800px;
-    background-color: $dark-bg;
-    border-radius: 6px;
-    // margin: 50px auto;
-    // opacity: 0.8;
-    display: flex;
-    padding: 0 10px;
     justify-content: flex-start;
     font-size: 25px;
+    color: $text-color2;
 
     .divider {
-      height: 50px;
-      width: 4px;
-      background-color: $divider;
-      margin: auto 10px;
       justify-content: center;
       align-items: center;
+      height: 50px;
+      width: 4px;
+      background-color: $divider-color;
+      margin: auto 10px;
     }
 
     .language-box {
-      height: 80px;
+      @include sub-box-props();
       width: 50%;
-      margin: 5px;
-      display: flex;
-      align-items: center;
 
       .language-select {
-        width: 100%;
-        color: #444444;
+        @include select-props();
         outline: none;
-        z-index: 100;
       }
     }
 
     .statement-box {
-      height: 80px;
+      @include sub-box-props();
       width: 100%;
-      margin: auto 5px;
-      display: flex;
-      color: #444444;
-      align-items: center;
 
       .statement-select {
-        width: 100%;
-        z-index: 100;
+        @include select-props();
       }
     }
 
@@ -109,11 +130,10 @@ body {
         border: none;
         color: $text-color;
         border-radius: 3px;
-        background-color: #918c8c;
+        background-color: $button-bg;
 
         &:hover {
-          background-color: #383837d7;
-          color: $text-color;
+          background-color: $button-hover-bg;
         }
       }
     }
@@ -122,28 +142,17 @@ body {
 
 // Initial Content
 .initcont-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
+  @include wrapper-property();
 
   .initcont-box {
-    display: flex;
+    @include box-property();
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 800px;
-    background-color: $dark-bg;
     padding: 10px;
-    color: $text-color;
-    border-radius: 6px;
-    flex-direction: column;
 
     .divider {
-      width: 100%;
-      border: 1px solid $divider;
-      border-width: 1px 0 0 0;
-      background-color: $divider;
+      @include divider-property();
     }
     
     .header-lang {
@@ -164,32 +173,24 @@ body {
 
 // Content
 .content-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: fit-content;
+  @include wrapper-property();
 
-  .content-box {
-    display: flex;
+   .content-box {
+     @include box-property();
     flex-direction: column;
-    width: 800px;
     padding: 10px;
-    color: #444;
-    background-color: $dark-bg;
-    border-radius: 6px;
-    color: #f0efef;
+    text-transform: uppercase;
 
     .divider {
-      border: 1px solid $divider;
-      border-width: 1px 0 0 0;
+      @include divider-property();
     }
 
     .code {
+      text-transform: lowercase;
+
       .title {
-        text-transform: lowercase;
         margin: 0 0 0 4px;
-        color: $divider;
+        color: $divider-color;
         font-size: 13px;
       }
     }
@@ -197,49 +198,31 @@ body {
     .header-lang {
       width: 100%;
       font-size: 15px;
-      text-transform: uppercase;
       margin: 5px 5px 5px 2px;
     }
 
     .header-stmt {
       width: 100%;
       font-size: 38px;
-      text-transform: uppercase;
     }
   }
 }
 
 // Footer
 .footer-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  height: fit-content;
+  @include footer-property();
   margin-bottom: 60px;
-  flex-shrink: 0;
-  // background-color: rgb(216, 118, 118);
   margin-top: auto;
 
   .footer-box {
-    display: flex;
-    width: fit-content;
-    justify-content: center;
-    height: fit-content;
-    flex-direction: column;
+    @include footer-property();
     border-radius: 6px;
     text-align: center;
     bottom: 0;
-    color: $dark-bg;
+    color: $background-color;
     text-transform: uppercase;
 
-    h3 {
-      margin: 0;
-      letter-spacing: 5px;
-    }
-
-    h4 {
+    h3, h4 {
       margin: 0;
       letter-spacing: 5px;
     }
