@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "arget": "es6",
+    "baseUrl": "./src",
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}t

@@ -1,0 +1,503 @@
+{
+  "java": {
+    "id": 1,
+    "statement": {
+      "cast": {
+        "code": "(type)var \n type:データ型 \n var:変数名",
+        "result": "51",
+        "sample": "long l = 50;\n int i = (int)l; \n System.out.println(1 i);",
+        "tag": [
+          "cast"
+        ]
+      },
+      "comment": {
+        "code": "(1行のみコメントしたい場合)// ここにコメントを入力\n(複数行コメントしたい場合)/* ここにコメントを入力 */",
+        "result": "なし",
+        "sample": "// コレは1行のコメントです\n/* コレは\n複数行の\nコメントです\n*/",
+        "tag": [
+          "java",
+          "comment"
+        ]
+      },
+      "continue": {
+        "code": "for (int i = 0; i = 繰り返したい回数; i  )\n  if (条件式)\n  {\n    continue\n  }\nsystem.out.println(i)\n}",
+        "result": "0\n1\n2\n3\n4\n6\n7\n8\n9",
+        "sample": "for (int i = 0; i = 10; i  )\n  if (i == 5)\n  {\n    continue;\n  }\nsystem.out.println(i)\n}",
+        "tag": [
+          "java",
+          "continue"
+        ]
+      },
+      "for": {
+        "code": "for(初期化式;条件式;変化式){\n 繰り返しの中で実行される処理\n}",
+        "result": "i=0 \n i=1",
+        "sample": "for (int i = 0; i < 2; i  ){\n System.out.println(\"i=\"   i)",
+        "tag": [
+          "for",
+          "loop"
+        ]
+      },
+      "if": {
+        "code": "if(条件式) {\n 処理内容 \n}",
+        "result": "a の値は正です",
+        "sample": "int a = 1\n if(a > 0) {\n System.out.println(\"a の値は正です\");\n}\n else if (a == 0) {\n System.out.println(\"a の値は0です\")",
+        "tag": [
+          "if"
+        ]
+      },
+      "join": {
+        "code": "String sj = String.join(\"区切りに使いたい文字\", \"文字列1\",\"文字列2\",\"文字列3\");",
+        "result": "apple,orange,melon",
+        "sample": "String str = String.join(\",\", \"apple\", \"orange\", \"melon\");\nSystem.out.println(str);",
+        "tag": [
+          "join"
+        ]
+      },
+      "print": {
+        "code": "(改行なしで出力したい場合)->System.out.print(表示する内容); /n (改行ありで出力したい場合) -> System.out.println(表示する内容)",
+        "result": "Hello World!!\nHello",
+        "sample": "System.out.print(\"Hello\");\nSystem.out.println(\"World!!\");\n System.out.print(\"Hello\")",
+        "tag": [
+          "print"
+        ]
+      },
+      "replace": {
+        "code": "対象の文字列.replace(置換される文字列, 置換する文字列)",
+        "result": "01230124",
+        "sample": "String str1 = \"abc123abc123\";\n String str2 = str1.replace(\"abc\", \"0\");\n System.out.println(str2); ",
+        "tag": [
+          "replace"
+        ]
+      },
+      "while": {
+        "code": "whlie(条件式){\n 繰り返しの中で実行される処理\n}",
+        "result": "num = 1\n num = 2\n num = 4",
+        "sample": "int num = 1;\n while(num <5){\n System.out.println(\"num=\" num)\n num *= 2;\n}",
+        "tag": [
+          "while",
+          "loop"
+        ]
+      },
+      "switch": {
+        "code": "switch(式){\n case 値1:\n  処理1\n  break;\n case 値2:\n  処理2\n  break;\n case 値3:\n  処理3\n  break;\n default:\n  処理4\n  break;\n}\n",
+        "sample": "public class Test {\n  public static void main(String[] args) {\n    int num = 5;\n    String output;\n    switch (num) {\n      case 1:\n        output = “numは3より小さいです”;\n        break;\n      case 2:\n        output = “numは3より小さいです”;\n        break;\n      case 3:\n        output = “numは3です”;\n        break;\n      case 4:\n        output = “numは3より大きいです”;\n        break;\n      default:\n        output = “numは3より大きいです”;\n        break;\n    }\n  System.out.println(output);\n  }\n}",
+        "result": "numは3より大きいです",
+        "tag": [
+          "java",
+          "switch"
+        ]
+      },
+      "list": {
+        "code": "List<データ型名> オブジェクト名 = new ArrayList<データ型名>();",
+        "sample": "List<String> list = new ArrayList<String>();\nlist.add(\"a\");//リストの変数名.addでリストへ要素追加\nlist.add(\"b\");\nlist.add(\"c\");\n\nsystem.out.println(list)",
+        "result": "a,b,c",
+        "tag": [
+          "java",
+          "list"
+        ]
+      },
+      "mutablelist": {
+        "code": "//普通のListは要素の追加が不可能だが、MutableListはあとから要素を追加できる\nval 変数名 = mutableListOf(リストの要素)",
+        "sample": "val mutablelist = mutableListOf(2,2,3)\n\nmutablelist.add(9)\n\nprintln(mutablelist)",
+        "result": "[1,2,3,9]",
+        "tag": [
+          "java",
+          "mutable",
+          "list"
+        ]
+      },
+      "length": {
+        "code": "配列変数.length",
+        "sample": "public class sample {\n    public static void main(String[] args) {\n        int[] intArray = new int[10];   //(1)\n        for (int i = 0; i < intArray.length; i++) {   //(2)\n            intArray[i] = i * 10;   //(3)\n            System.out.println(intArray[i]);   //(4)\n        }\n    }\n}",
+        "result": "10,20,30,40,50,60,70,80,90",
+        "tag": [
+          "java",
+          "list",
+          "length"
+        ]
+      },
+      "length()": {
+        "code": "String型変数.length()",
+        "sample": "public class Sample{\n        public static void main(String[] args){\n                 String str = \"こんにちは\";\n                 int num;\n \n                 num = str.length();\n\n                System.out.println(\"「\" + str+ \"」の文字数は\"+num+\"です。\");\n \n         }\n}",
+        "result": "「こんにちは」の文字数は、5です。",
+        "tag": [
+          "java",
+          "length"
+        ]
+      },
+      "arraycopy": {
+        "code": "データ型名[] コピー元の配列名 = new データ型[要素数];\nデータ型名[] コピー先の配列名 = コピー元の配列名.clone();",
+        "sample": "public class Sample {\n    public static void main(String[] args) {\n        char[] charArray1 = {'A', 'B', 'C', 'D', 'E', 'F', 'G'}; //(1)\n        char[] charArray2 = (char[])charArray1.clone();   //(2)\n\n        for (int i = 0; i < charArray2.length; i++) {   //(3)\n            System.out.println(charArray2[i]);\n        }\n    }\n}",
+        "result": "A\nB\nC\nD\nE\nF\nG",
+        "tag": [
+          "java",
+          "array",
+          "copy"
+        ]
+      }
+    },
+    "update": ""
+  },
+  "javascript": {
+    "id": 2,
+    "statement": {
+      "console.log": {
+        "code": "console.log(出力したい内容);",
+        "result": "Hello",
+        "sample": "console.log('Hello')",
+        "tag": [
+          "print"
+        ]
+      },
+      "for": {
+        "code": "for ([初期化式]; [条件式]; [加算式]) {\n  // 実際に実行する処理\n}",
+        "result": "現在1回目の処理です。\n現在2回目の処理です。\n現在3回目の処理です。",
+        "sample": "for (let i = 0; i < 3; i  ) {\n  console.log(\"現在\"   (i 1)   \"回目の処理です。\")\n}",
+        "tag": [
+          "for",
+          "loop"
+        ]
+      },
+      "if": {
+        "code": "if (条件式) {\n 条件が成り立った場合処理を実行\n )",
+        "result": "numは80より大きいです",
+        "sample": "var num = 90;\n if(num > 80) {\n console.log(\"numは80より大きいです。\");\n}",
+        "tag": [
+          "if"
+        ]
+      },
+      "join": {
+        "code": "join(\"区切りに使用したい文字\")",
+        "result": "Hello:World",
+        "sample": "var array = [\"Hello\",\"World\"];\nvar result = array.join(\":\");\nconsole.log(result);",
+        "tag": [
+          "join"
+        ]
+      },
+      "replace": {
+        "code": "var str = 文字列 \n str.replace(対象の文字, 置換する文字);",
+        "result": "user-123",
+        "sample": "var str = 'user_123';\nvar result = str.replace( '_', '-' );\nconsole.log( result );",
+        "tag": [
+          "replace"
+        ]
+      },
+      "while": {
+        "code": "while (条件式) {\n  // 実際に実行する処理\n}",
+        "result": "0\n 1\n 2\nend",
+        "sample": "let i = 0\n\nwhile(i < 3)\n console.log(i);\n i = i   1;\n} console.log('end')",
+        "tag": [
+          "while",
+          "loop"
+        ]
+      }
+    },
+    "update": ""
+  },
+  "kotlin": {
+    "id": 3,
+    "statement": {
+      "comment": {
+        "code": "(1行のみコメントしたい場合)// ここにコメントを入力\n(複数行コメントしたい場合)/* ここにコメントを入力 */",
+        "result": "なし",
+        "sample": "// コレは1行のコメントです\n/* コレは\n複数行の\nコメントです\n*/",
+        "tag": [
+          "kotlin",
+          "comment"
+        ]
+      },
+      "continue": {
+        "code": "for (処理) {\n  if( 条件式) {\n    continue\n  }\nprintln( 出力したい文字等)\n}",
+        "result": "0\n2",
+        "sample": "for (i in 0..2) {\n  if(i==1) {\n    continue\n   }\n  println(i)\n }\n",
+        "tag": [
+          "kotlin",
+          "continue"
+        ]
+      },
+      "for": {
+        "code": "for(変数 in 条件){\nループしたい処理\n}",
+        "result": "0,1,2,3,4,5",
+        "sample": "for(i in 0..5) {\n println(i)\n}",
+        "tag": [
+          "for",
+          "loop"
+        ]
+      },
+      "if": {
+        "code": "if(結果がtrue/falseになる式){\n 式がtrueのときの処理\n}else if(ifがtrueではない別の条件){\n else if で行いたい処理\n}else{\n elseで行いたい処理 \n}",
+        "result": "numは1",
+        "sample": "val num = 1 \n if(num == 0){\n println(\"numは0\")\n}else if(num == 1){\nprintln(\"numは1\")\n}else{\nprintln(\"numはそれ以外\")\n}",
+        "tag": [
+          "if"
+        ]
+      },
+      "join": {
+        "code": "val 変数名1: Array<型> = arrayOf(配列の内容)\nval 変数名2 = 変数名1.joinToString()\nprintln(変数名2)\n",
+        "result": "java,javascript,kotlin,python",
+        "sample": "val langlist: Array<String> = arrayOf(\"java\",\"javascript\",\"kotlin\",\"python\")\nval contains = programs.joinToString()\nprintln(contains)",
+        "tag": [
+          "kotlin",
+          "join"
+        ]
+      },
+      "print": {
+        "code": "print(\"出力したい文字\")",
+        "result": "Hello World",
+        "sample": "print(\"Hello World\")",
+        "tag": [
+          "print"
+        ]
+      },
+      "replace": {
+        "code": "変数.replace(\"置換前の文字\",\"置換後の文字\")",
+        "result": "aBc",
+        "sample": "val str = \"abc\"\nval str1 = str.replace(\"b\",\"B\")\nprintln(str1);",
+        "tag": [
+          "replace"
+        ]
+      },
+      "when": {
+        "code": "val 変数名1 = 1\n\nwhen (変数名1) {\n     0 -> {\n        println(\"0\")\n      }\n      1,2 -> {\n         println(\"1,2\")\n       }\n       else -> {\n          println(\"else\")\n       }\n}",
+        "result": "1,2",
+        "sample": "val wprac = 1\n\nwhen (wprac) {\n     0 -> {\n        println(\"0\")\n      }\n      1,2 -> {\n         println(\"1,2\")\n       }\n       else -> {\n          println(\"else\")\n       }\n}",
+        "tag": [
+          "kotlin",
+          "when"
+        ]
+      },
+      "while": {
+        "code": "while (条件式) {\n ループしたい処理\n}",
+        "result": "0,1,2,3,4,5,6,7,8,9",
+        "sample": "var i = 0\n while(i < 10) {\n println(i)\n   i\n}",
+        "tag": [
+          "while",
+          "loop"
+        ]
+      },
+      "nullable": {
+        "code": "val 変数1: 型?\n変数1 = null",
+        "sample": "val nonNull: String?\nnonNull = null",
+        "result": "なし",
+        "tag": [
+          "kotlin",
+          "nullable"
+        ]
+      }
+    },
+    "update": ""
+  },
+  "python": {
+    "id": 0,
+    "statement": {
+      "all": {
+        "code": "all([条件式A, 条件式B........]) # 条件式が全てTrueだった場合Trueを返す",
+        "result": "list a is all even number\nlist a is NOT all even number",
+        "sample": "l = [2,4,6,8,10]\nif all(i % 2 == 0 for i in l): # 全て偶数かを判別\n  print(\"list a is all even number\")\nelse:\n  print(\"list a is NOT all even number\")\n\nl.append(11) # 一つだけ奇数を挿入\nif all(i % 2 == 0 for i in l): # 全て偶数かを判別\n  print(\"list a is all even number\")\nelse:\n  print(\"list a is NOT all even number\")",
+        "tag": [
+          "all",
+          "if"
+        ]
+      },
+      "any": {
+        "code": "any([条件式A, 条件式B.....]) # どれか一つでもTrueがあればTrueを返す。",
+        "result": "list a is all even number\nlist a is has ODD number",
+        "sample": "l = [2,4,6,8,10]\nif any(i % 2 == 1 for i in l): # 一つでも奇数を持っているかを判別\n  print(\"list a has ODD number\")\nelse:\n  print(\"list a is all even number\")\n\nl.append(11) # 一つだけ奇数を挿入\nif any(i % 2 == 1 for i in l): # 一つでの奇数を持っているかを判別\n  print(\"list a is has ODD number\")\nelse:\n  print(\"list a is all even number\")",
+        "tag": [
+          "any",
+          "if"
+        ]
+      },
+      "comment": {
+        "code": "# pythonでのコメントアウトは「#」シャープを使用する。\n\n\"\"\"\n複数行のコメントアウトは\n「\"\"\"」トリプルクオートで囲むことで\nコメントアウトすることができる。\n\"\"\"",
+        "result": "hello comment\nhello piyopiyo",
+        "sample": "print(\"hello comment\") # ここはコメント\nprint(\"hello piyopiyo\") # print(\"comment\") ここはコメントなので実行されない\n\"\"\"\nprint(\"hello\")\npirint(\"piyopiyo\")\n\"\"\"",
+        "tag": [
+          "comment",
+          "out"
+        ]
+      },
+      "divmod": {
+        "code": "divmod(数値A, 数値B) # 数値A // 数値B と 数値A % 数値Bを同時に計算する。",
+        "result": "3 1\n4 0",
+        "sample": "a, b = divmod(10, 3)\nprint(a,b)\nc, e = divmod(12, 3)\nprint(c,e)",
+        "tag": [
+          "div",
+          "mod",
+          "divmod"
+        ]
+      },
+      "enumerate": {
+        "code": "enumerate(リスト型) # enumerate型オブジェクトで値が返される\nenumerate(ディクショナリ型) \n\n# 主にfor文と一緒に使うことが多い。\nfor i, v in enumerate(list(range(3))):\n  # iにインデックス番号が入る\n  # vに値が入る。ディクショナリだとキーがはいる。",
+        "result": "0 python\n1 kotlin\n2 c\n0 py\n1 kt\n2 js",
+        "sample": "l = [\"python\", \"kotlin\", \"c\"]\nfor i, v in enumerate(l):\n  print(i, v)\n\nd = {\"py\": \"python\", \"kt\": \"kotlin\", \"js\": \"javascript\"}\nfor i, k in enumerate(d):\n  print(i, k)",
+        "tag": [
+          "enumerate"
+        ]
+      },
+      "for": {
+        "code": "for 変数 in オブジェクト:\n  実行する処理\n\n# rangeオブジェクトを使用する場合\nfor i in range(回す回数):\n  実行する処理",
+        "result": "Japanese\nEnglish\nFrench",
+        "sample": "words = ['Japanese', 'English', 'French']\n\nfor w in words:\n  print(w)",
+        "tag": [
+          "for",
+          "loop"
+        ]
+      },
+      "if": {
+        "code": "if 条件式A:\n  条件式Aが真（true）の場合に実行する処理\nelif 条件式B:\n  条件式Aが偽（false）で条件式Bが真（true）の場合に実行する処理\nelse:\n  すべての条件式が偽（false）の場合に実行する処理\n\n# pythonではswitch文やwhen式が無いため\n# if elif elseを使って表現しないといけない。",
+        "result": "大人",
+        "sample": "a = 20\n\nif a < 20:\n  print('子供')\nelif a < 60:\n  print('大人')\nelse:\n  print('老人')",
+        "tag": [
+          "if",
+          "switch",
+          "when",
+          "case"
+        ]
+      },
+      "input": {
+        "code": "input() # input関数はユーザーがCui上で入力する文字を読み取る関数です\n# String型でデータは管理されます。\ninput(\"文字列\") # 文字列を指定することでここにどんな文字を入力するかわかりやすくなります。",
+        "result": "yes",
+        "sample": "print(input(\"please write [yes] or [no] ->\"))\n# 実行時にyesを入力",
+        "tag": [
+          "input",
+          "reader",
+          "read",
+          "readline"
+        ]
+      },
+      "isnumeric": {
+        "code": "\"文字\".isnumeric() # 文字が数値かどうかを判別しBoolean型で返す",
+        "result": "False\nTrue",
+        "sample": "print(\"hello\".isnumeric())\n\nprint(\"35\".isnumeric())",
+        "tag": [
+          "isnumeric",
+          "int"
+        ]
+      },
+      "join": {
+        "code": "'間に挿入する文字列'.join([連結したい文字列のリスト])",
+        "result": "aaa-bbb-ccc",
+        "sample": "l = ['aaa', 'bbb', 'ccc']\ns = '-'.join(l)\nprint(s)",
+        "tag": [
+          "join",
+          "cat"
+        ]
+      },
+      "just": {
+        "code": "ストリング型.rjust(数値) # 数値の値ぶん左に空白を埋める\nストリング型.rjust(数値, ストリング) # 数値の値ぶん左にストリングを詰める。 ストリングが2文字以上だとエラーが出る。\n\nストリング型.ljust(数値) # 数値の値ぶん右に空白を埋める\nストリング型.ljust(数値, ストリング) # 数値の分だけ右にストリングを埋める。　ストリングが2文字以上だとエラーが出る。\n\nストリング型.center(数値) # 数値の値ぶん左右に空白を埋める\nストリング型.center(数値, ストリング) # 数値の分だけストリングを左右に埋める。ストリングが2文字以上だとエラーが出る。",
+        "result": "   right\n---right\nleft\nleft----\n center\n-center-",
+        "sample": "r = \"right\"\nl = \"left\"\nc = \"center\"\n\nprint(r.rjust(8))\nprint(r.rjust(8, \"-\"))\nprint(l.ljust(8))\nprint(l.ljust(8, \"-\"))\nprint(c.center(8))\nprint(c.center(8, \"-\"))",
+        "tag": [
+          "just",
+          "fill",
+          "zfill",
+          "center",
+          "rjust",
+          "ljust"
+        ]
+      },
+      "list": {
+        "code": "List = [] # 空リストの作成\nnList = [1, 2, 3, 4, 5] # リストの作成\nsLIst = list(\"文字列\") # string型をリストに変換 ['文', '字', '列']\ntList = list((1,2,3)) # タプル型をリスト型に変換 [1, 2, 3]\nrList = list(range(5)) # レンジオブジェクトをリスト型に変換 [0, 1, 2, 3, 4]\n\nlList = [ 変数 for 変数 in range(3)] # リスト内表記 [0, 1, 2]\niList = [ 変数 for 変数 in range(5) if 変数 % 2 == 0] # if式を使ったリスト内表記 [0, 2, 4]\n\nmax(リスト型) # リストの最大値が返る\nmin(リスト型) # リストの最小値が返る\nlen(リスト型) # リストのサイズが返る\n\nリスト型[インデックス番号] # リストのインデックスの値が返る\nリスト型[インデックスA:インデックスB] # リスト型のインデックスAのからインデックスBまでの値をリスト型で返す\nリスト型[インデックスA:インデックスB:ステップ] # リスト型のインデックスAのからインデックスBまでの値をステップ飛ばしで返す。",
+        "result": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n3\n7\n9\n0\n10\n[1, 2]\n[3, 4, 5, 6, 7, 8, 9]\n[0, 2, 4, 6, 8]\n[0, 2, 4, 6, 8]",
+        "sample": "nList = list(range(10)) # リストの作成\nprint(nList)\n\nprint(nList[3]) # インデックス３の取得\nprint(nList[-3]) # インデックスにマイナスの値を入れると後ろからのインデックスになる\n\nprint(max(nList)) # 最大値の取得",
+        "tag": [
+          "list",
+          "array"
+        ]
+      },
+      "listAppend": {
+        "code": "リスト名 = list(range(10)) # リストの作成\n\nリスト名 = リスト型 + リスト型 # リスト同士は「+」記号を用いることで連結できる\n\nリスト型.append(値) # append関数を使用することでリストの最後に値を挿入することができる\n\nリスト型.extend(リスト) # extend関数を使用することでリストを連結することができる「+」のようなもの\n\nリスト型.insert(インデックス, 値) # insert関数を使用することで、指定したインデックスに値を入れることができる。",
+        "result": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14]\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]",
+        "sample": "nList = list(range(10)) # リストの作成\nprint(nList)\n\nnList.append(10) # appendでの追加\nprint(nList)\n\nnList.extend([11, 12, 14]) # extendでの結合\nprint(nList)\n\nnList.insert(13, 13) # insertでの挿入\nprint(nList)",
+        "tag": [
+          "list",
+          "array",
+          "append",
+          "add",
+          "insert",
+          "extend"
+        ]
+      },
+      "listDelete": {
+        "code": "del リスト型[インデックス番号] # リストのインデックス番号の値を削除する\n\nリスト型.pop(インデックス番号) # インデックス番号を削除し、削除した値を返す\nリスト型.remove(値) # リスト型から値を削除する。値が複数ある場合は最初の値が削除される\nリスト型.clear() # リストを削除する",
+        "result": "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n[1, 2, 3, 4, 5, 6, 7, 8, 9]\n[1, 4, 5, 6, 7, 8, 9]\n[1, 5, 6, 7, 8, 9]\n['e', 'l', 'l', 'o', ' ', 'p', 'i', 'y', 'o', 'p', 'i', 'y', 'o']\nh\n['e', 'l', 'l', 'o', ' ', 'p', 'y', 'o', 'p', 'i', 'y', 'o']\n['e', 'l', 'l', ' ', 'p', 'y', 'p', 'i', 'y']\n[]",
+        "sample": "nList = list(range(10))\nprint(nList)\n\ndel nList[0] # delでの削除\nprint(nList)\ndel nList[1: 3] # delとスライスでの削除\nprint(nList)\nnList[1:2] = [] # スライスを使用して削除\nprint(nList)\nnList = [] # リストの削除\n\nsList = list(\"hello piyopiyo\")\np = sList.pop(0) # popでの削除\nprint(sList)\nprint(p) # popでは削除した値が返される。上でpにその値を入れているのでこの場合「h」が表示される\n\nsList.remove(\"i\") # removeでの削除この場合最初の\"i\"が削除される\nprint(sList)\n\n# リストから指定の値を全て削除する場合\ntarget = \"o\"\nsList = [i for i in sList if i != target]\nprint(sList)\n\nsList.clear() # clearでの削除\nprint(sList)",
+        "tag": [
+          "list",
+          "array",
+          "delete",
+          "pop",
+          "remove",
+          "removeAt"
+        ]
+      },
+      "map": {
+        "code": "",
+        "result": "",
+        "sample": "",
+        "tag": []
+      },
+      "print": {
+        "code": "print('出力したい文字', end=\"最後の文字\", sep=\"間に入れたい文字\")\n# endを指定しない場合は改行がデフォルトで入る\n# sepを指定しない場合は空白がデフォルトで入る",
+        "result": "Hello\nHello@Python@Print\nHellopiyopiyo",
+        "sample": "print('Hello')\nprint(\"Hello\", \"Python\", \"Print\", sep=\"@\")\nprint(\"Hello\", end=\"piyopiyo\")",
+        "tag": [
+          "print",
+          "println",
+          "printf",
+          "console",
+          "log"
+        ]
+      },
+      "replace": {
+        "code": "\"文字または変数\".replace(\"変換したい文字\", \"変換後の文字\")",
+        "result": "i like Banana",
+        "sample": "a = \"i like apple\"\n print(a.replace(\"apple\", \"Banana\"))",
+        "tag": [
+          "replace"
+        ]
+      },
+      "round": {
+        "code": "round(値, 桁数) # pythonのroundでは四捨五入ではなく偶数に丸め込まれる。\n# 桁数は1の時→小数点第一位\n# 2の時→小数点第二位のようになる\n# -1の場合は10の位でroundする。\n\nround(Int型の値, 桁数) # Int型を投げたのでInt型でデータが返される\nround(Float型の値, 桁数) # Float型を投げたのでFloat型でデータが返される。\n\n# ちゃんとした四捨五入を作成する\nimport math\ndef myround(x, d=0):\n  p = 10 ** d\n  return float(math.floor((x * p) + math.copysign(0.5, x))) / p\n",
+        "result": "round(a, 1) -> 123.5\nround(a, 2) -> 123.46\nround(a, 3) -> 123.456\nround(0.5) -> 0\nround(1.5) -> 2\nround(2.5) -> 2\nround(3.5) -> 4\nmyround(0.5) -> 1.0\nmyround(1.5) -> 2.0\nmyround(2.5) -> 3.0\nmyround(3.5) -> 4.0",
+        "sample": "import math\n\ndef myround(x, d=0):\n  p = 10 ** d\n  return float(math.floor((x * p) + math.copysign(0.5, x))) / p\n\na = 123.456\nprint(\"round(a, 1) ->\", round(a, 1)) # 少数第一位でround\nprint(\"round(a, 2) ->\", round(a, 2))\nprint(\"round(a, 3) ->\", round(a, 3))\n\nprint(\"round(0.5) ->\", round(0.5)) # roundは偶数に丸め込みなので0.0になる\nprint(\"round(1.5) ->\", round(1.5)) # 2\nprint(\"round(2.5) ->\", round(2.5)) # 2\nprint(\"round(3.5) ->\", round(3.5)) # 2\n\nprint(\"myround(0.5) ->\", myround(0.5)) # myroundは四捨五入なので1.0になる\nprint(\"myround(1.5) ->\", myround(1.5)) # 2.0\nprint(\"myround(2.5) ->\", myround(2.5)) # 3.0\nprint(\"myround(3.5) ->\", myround(3.5)) # 4.0",
+        "tag": [
+          "round",
+          "math"
+        ]
+      },
+      "string": {
+        "code": "s = \"文字\" # Stringの指定\nns = str(数値) # str()を使用して型を変換する。\nls = len(\"文字\") # 文字のサイズを返す\ns + \"列\" # String型の連結は「+」行う。 \"文字列\"\ns * 3 # String型の繰り返しは「*」を使用する。 \"文字文字文字\"\n\nf\"文字{変数}\" # 任意変換文字にはfをつける\n\" {0}, {1} \".format(\"hello\", \"piyo\") # formatを使用した任意変換文字 # \"hello, piyo\"\n\nストリング型[インデックス] # String型のインデックス番号の値を取得マイナスのインデックスを入れた場合後ろからのインデックス番号になる\nストリング型[インデックスA:インデックスb] # ストリング型のインデックスA~インデックスBの文字を取得\n\nストリング型.find(\"文字\") # findを使用して文字を探せる。最初に見つかったインデックス番号を返す。第二引数にInt型の値を入れることで、第二引数の値より後の検索をすることができる。\n\nストリング型.upper() # ストリング型を大文字にする\nストリング型.lower() # ストリング型を小文字に変換する\n\nストリング型.count(\"値\") # ストリング型に値が何個入っているかを返す値\n",
+        "result": "6\nStringHello\nPiyopiyoPiyopiyoPiyopiyo\nHello String\nHello Piyopiyo",
+        "sample": "s = \"String\"\nh = \"Hello\"\np = \"Piyopiyo\"\n\nprint(len(s))\nprint(s + h)\nprint(p * 3)\n\nprint(f\"{h} {s}\")\nprint(\"{0} {1}\".format(h, p))",
+        "tag": [
+          "string",
+          "str",
+          "format",
+          "f"
+        ]
+      },
+      "while": {
+        "code": "while 条件式:\n  条件式が真の時に実行する文\n\n# 下の書き方でも良い\n# while True:\n#   if 条件式;\n#     break\n",
+        "result": "num = 0\nnum = 1\nEnd",
+        "sample": "num = 0\nwhile num < 2:\n  print(\"num =\", str(num))\n  num  = num + 1\nprint(\"End\")",
+        "tag": [
+          "whiile",
+          "loop"
+        ]
+      },
+      "zfill": {
+        "code": "'文字'.zfill(数値) # 数値の数で0埋めをしてくれる",
+        "result": "12, 3 -> 012\n13, 4 -> 0013",
+        "sample": "print(\"12, 3 ->\", \"12\".zfill(3)) # 3桁の0埋めなので「012」になる\nprint(\"13, 4 ->\", \"13\".zfill(4)) # 4桁の0埋めなので「0013」になる",
+        "tag": [
+          "fill",
+          "zfill",
+          "just"
+        ]
+      }
+    },
+    "update": ""
+  }
+}
