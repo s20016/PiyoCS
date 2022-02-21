@@ -13,32 +13,30 @@ const Content = (props) => {
 
   return (
     <div className='content-wrapper'>
-      <div className='content-box'>
-        <div className='header'>
-          <div className='header-lang'>{props.lang}</div>
-          <div className='header-stmt'>{props.stmt}</div>
-          <hr className='divider'/>
-        </div>
-        <div className='code'>
-          <p className='title'>sample</p>
-          <pre>
-            <code className={`language-${props.lang}`}>
-              {props.code}
-            </code>
-          </pre>
-          <p className='title'>code</p>
-          <pre>
-            <code className={`language-${props.lang}`}>
-              {props.sample}
-            </code>
-          </pre>
-          <p className='title'>result</p>
-          <pre>
-            <code className={`language-${props.lang}`}>
-              {props.result}
-            </code>
-          </pre>
-        </div>
+      <div className='header'>
+        <div className='header-lang'>{props.lang}</div>
+        <div className='header-stmt'>{props.stmt}</div>
+      </div>
+      <hr className='divider'/>
+      <div className='code'>
+        <p className='title'>sample</p>
+        <pre>
+          <code className={`language-${props.lang}`}>
+            {props.code}
+          </code>
+        </pre>
+        <p className='title'>code</p>
+        <pre>
+          <code className={`language-${props.lang}`}>
+            {props.sample}
+          </code>
+        </pre>
+        <p className='title'>result</p>
+        <pre>
+          <code className={`language-${props.lang}`}>
+            {props.result}
+          </code>
+        </pre>
       </div>
     </div>
   )

@@ -1,32 +1,33 @@
 import React from 'react'
 import Select from 'react-select'
 import getdata from '../data/data.json'
-import { IoSearch } from 'react-icons/io5'
-
 import Content from './Content'
 import InitialContent from './InitialContent'
+import { IoSearch } from 'react-icons/io5'
 
 class Search extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       allData: {},
-      langs: ['all'],
+      langs: [],
       stmts: [],
       data: {},
-      lang: 'all',
+      lang: '',
       stmt: '',
-      selectLang: 'all',
+      selectLang: '',
       selectStmt: '',
       langOptions: [],
       stmtOptions: [],
       selectStmtOption: null,
-      isInitial: true
+      selectStmtDisabled: true,
+      isInitial: true,
+      searchBtnDisabled: true,
+      play: true
     }
   }
 
   componentDidMount () {
-    // this.loadData('https://raw.githubusercontent.com/s20016/PiyoCS/dev/public/data.json')
     this.getData()
   }
 
@@ -47,22 +48,23 @@ class Search extends React.Component {
   }
 
   handleSelectInputChange (e) {
-    console.log(e)
     const value = e.value
-    this.setState({ selectStmt: value, selectStmtOption: { value: value, label: value } })
+    this.setState({
+      selectStmt: value,
+      selectStmtOption: { value: value, label: value },
+      searchBtnDisabled: false
+    })
   }
 
   handleSelectChange (e) {
-    console.log(e)
     const value = e.value
-    if (value === 'all') {
-      return
-    }
     const options = []
     Object.keys(this.state.allData[value].statement).forEach(i => {
       options.push({ value: i, label: i })
     })
     this.setState({
+      selectStmtDisabled: false,
+      searchBtnDisabled: true,
       selectLang: e.value,
       selectStmt: '',
       selectStmtOption: null,
@@ -77,48 +79,43 @@ class Search extends React.Component {
       lang: this.state.selectLang,
       isInitial: false
     })
-    console.log(this.state.data)
   }
 
   render () {
-    const customStyles = {
-      option: (provided) => ({
-        ...provided
-      })
-    }
-
     return (
       <>
         <div className='search-wrapper'>
-          <div className='search-bar'>
-            <div className='language-box'>
-              <Select
-                styles={customStyles}
-                className='language-select'
-                options={this.state.langOptions}
-                onChange={this.handleSelectChange.bind(this)}
-              />
-            </div>
-            <div className='divider'>
-            </div>
-            <div className='statement-box'>
-              <Select
-              className='statement-select'
-              value={this.state.selectStmtOption}
-              options={this.state.options}
-              onChange={this.handleSelectInputChange.bind(this)}
-              />
-            </div>
-            <div className='button-box'>
-              <button
-                className='button'
-                onClick={
-                  this.handleSearchClick.bind(this)
-                }
-              >
-                <IoSearch />
-              </button>
-            </div>
+          <div className='language-box'>
+            <Select
+              className='language-select'
+              options={this.state.langOptions}
+              onChange={this.handleSelectChange.bind(this)}
+              placeholder={<div>言語</div>}
+            />
+          </div>
+          <div className='divider'>
+          </div>
+          <div className='statement-box'>
+            <Select
+            className='statement-select'
+            value={this.state.selectStmtOption}
+            options={this.state.options}
+            onChange={this.handleSelectInputChange.bind(this)}
+            isDisabled={this.state.selectStmtDisabled}
+            placeholder={<div>文法</div>}
+            />
+          </div>
+          <div className='button-box'>
+            <button
+              aria-label='search'
+              disabled={this.state.searchBtnDisabled}
+              className='button'
+              onClick={
+                this.handleSearchClick.bind(this)
+              }
+            >
+              <IoSearch />
+            </button>
           </div>
         </div>
         {
